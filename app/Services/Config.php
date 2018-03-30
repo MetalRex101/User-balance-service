@@ -5,6 +5,8 @@ namespace App\Services;
 class Config
 {
     /**
+     * Return pdo connection pieces
+     *
      * @return array
      */
     public function getPDOConnection(): array

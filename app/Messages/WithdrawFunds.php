@@ -40,6 +40,7 @@ class WithdrawFunds extends AMessage
      */
     protected function setPayload(array $payload)
     {
+        // TODO move validation logic out
         $userId = $payload['user_id'] ?? null;
         $count = $payload['count'] ?? null;
 

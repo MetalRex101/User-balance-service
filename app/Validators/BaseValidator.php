@@ -24,6 +24,8 @@ class BaseValidator
     }
 
     /**
+     * Validate user existence id database
+     *
      * @param int $userId
      * @throws ValidatorException
      */
@@ -37,12 +39,14 @@ class BaseValidator
     }
 
     /**
+     * Validate count equals or greater than 0
+     *
      * @param int|null $count
      * @throws ValidatorException
      */
-    public function validateCount(?int $count)
+    public function validateCount(int $count)
     {
-        if (!$count) {
+        if ($count <= 0) {
             throw new ValidatorException(MessageValidator::COUNT_NOT_DEFINED);
         }
     }

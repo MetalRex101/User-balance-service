@@ -5,6 +5,8 @@ namespace App\Repositories;
 class UserRepository extends BaseRepository
 {
     /**
+     * Return user record by id
+     *
      * @param int $id
      * @return null
      */

@@ -47,11 +47,11 @@ class App
      */
     public function run(): void
     {
-        // TODO move to config
+        // TODO move values to config
         $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
         $channel = $connection->channel();
 
-        // TODO move to config
+        // TODO move values to config
         $channel->queue_declare('user_balance', false, false, false, false);
 
         echo ' [*] Waiting for messages. To exit press CTRL+C', "\n";
@@ -78,6 +78,7 @@ class App
             $channel->wait();
         }
 
+        // TODO grace full shutdown
         $channel->close();
         $connection->close();
     }

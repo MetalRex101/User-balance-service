@@ -19,6 +19,8 @@ class UnblockFundsValidator extends BaseValidator implements MessageValidator
     }
 
     /**
+     * Validate blocked_funds record existence in database
+     *
      * @param int $funds_block_id
      * @return void
      * @throws ValidatorException

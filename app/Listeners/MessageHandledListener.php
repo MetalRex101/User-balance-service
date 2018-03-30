@@ -10,6 +10,9 @@ class MessageHandledListener implements ListenerInterface
     {
     }
 
+    /**
+     * @param Event $event
+     */
     public function handle(Event $event)
     {
         // handle event

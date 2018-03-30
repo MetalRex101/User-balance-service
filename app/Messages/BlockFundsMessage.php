@@ -38,13 +38,12 @@ class BlockFundsMessage extends AMessage
     }
 
     /**
-     * Set payload to message object
-     *
      * @param array $payload
      * @throws InvalidMessageStructureException
      */
     protected function setPayload(array $payload): void
     {
+        // TODO move validation logic out
         $userId = $payload['user_id'] ?? null;
         $count = $payload['count'] ?? null;
 

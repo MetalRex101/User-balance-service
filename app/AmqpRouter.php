@@ -36,6 +36,8 @@ class AmqpRouter
     }
 
     /**
+     * Resolve Message object by message type
+     *
      * @param array $message
      * @return AMessage
      * @throws InvalidMessageStructureException

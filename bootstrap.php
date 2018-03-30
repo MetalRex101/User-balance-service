@@ -9,6 +9,7 @@ use App\ServiceProvider;
 use Pimple\Container;
 
 $container = new Container();
+// TODO split to multiple providers
 $container->register(new ServiceProvider());
 
 (new App($container))->run();

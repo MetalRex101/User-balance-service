@@ -11,6 +11,8 @@ interface MessageValidator
     public const FUNDS_BLOCK_NOT_FOUND = 'funds block not found';
 
     /**
+     * Performs validation
+     *
      * @param AMessage $message
      * @return void
      */

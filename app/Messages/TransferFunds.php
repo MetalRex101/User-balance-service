@@ -32,6 +32,7 @@ class TransferFunds extends AMessage
      */
     protected function setPayload(array $payload)
     {
+        // TODO move validation logic out
         $user_from_id = $payload['user_from_id'] ?? null;
         $user_to_id = $payload['user_to_id'] ?? null;
         $count = $payload['count'] ?? null;

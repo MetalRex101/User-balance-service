@@ -33,6 +33,9 @@ class TestCase extends \PHPUnit\Framework\TestCase
      */
     public function setUp()
     {
+        // TODO migrate once for all tests
+        // TODO rollback transaction for each test
+
         (new Dotenv(__DIR__ . '/../'))->load();
 
         putenv('APP_ENV=testing');
@@ -47,6 +50,11 @@ class TestCase extends \PHPUnit\Framework\TestCase
         $this->phinx->migrate(getenv('APP_ENV'));
     }
 
+    /**
+     * Rollbacks all db changes after function call
+     *
+     * @param callable $function
+     */
     protected function withoutCommit(callable $function)
     {
         $this->connection->beginTransaction();
@@ -56,6 +64,11 @@ class TestCase extends \PHPUnit\Framework\TestCase
         $this->connection->rollBack();
     }
 
+    /**
+     * Returns configured phinx manager for test env
+     *
+     * @return Manager
+     */
     private function getPhinxManager()
     {
         $config = new Config([
@@ -63,6 +76,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
                 'migrations' => __DIR__.'/../db/migrations',
             ],
             'environments' => [
+                'default_migration_table' => 'migrations',
                 'testing' => [
                     'adapter' => 'mysql',
                     'host' => getenv('TEST_DB_HOST'),

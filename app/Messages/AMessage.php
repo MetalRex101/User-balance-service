@@ -72,6 +72,9 @@ abstract class AMessage
         $this->handler = $handler;
     }
 
+    /**
+     * @param MessageValidator|null $validator
+     */
     public function setValidator(?MessageValidator $validator): void
     {
         $this->validator = $validator;
@@ -101,5 +104,11 @@ abstract class AMessage
         $this->handler->handle($this);
     }
 
+    /**
+     * Set payload to message object
+     *
+     * @param array $payload
+     * @return mixed
+     */
     abstract protected function setPayload(array $payload);
 }

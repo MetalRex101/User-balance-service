@@ -30,6 +30,7 @@ class UnblockFunds extends AMessage
      */
     protected function setPayload(array $payload)
     {
+        // TODO move validation logic out
         $funds_block_id = $payload['funds_block_id'] ?? null;
 
         if (!$funds_block_id) {
